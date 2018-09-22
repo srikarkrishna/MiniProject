@@ -1,0 +1,72 @@
+
+Drop table Users;
+Drop table Programs_Offered;
+
+Drop table Programs_Scheduled;
+ 
+Drop table Application;
+
+Create table Users(LOGIN_ID Varchar2(20) Primary Key,Password varchar2(50),Role varchar2(10));
+Insert Into users values('adda','laxman','admin');
+
+select * from Users;
+
+Create table Programs_Offered (ProgramName varchar2(5) Primary Key,description varchar2(20),applicant_eligibility varchar2(40),duration number,degree_certificate_offered varchar2(10));
+
+
+
+Create table Programs_Scheduled (Scheduled_program_id varchar2(5) Primary Key,ProgramName varchar2(5),Location varchar2(10),start_date date,end_date date,sessions_per_week number);
+
+
+alter table Programs_Offered modify ProgramName varchar2(15);
+
+alter table Programs_Offered modify (description varchar2(50),applicant_eligibility varchar2(50),degree_certificate_offered varchar2(30));
+
+insert into Programs_Offered values ('Statistics','Covers courses like Probability,Data Science','Should have Completed Graduation in any stream','2','Post Graddegree in Statistics');
+
+
+
+insert into Programs_Offered values ('Mathematics','Introduction to Thereotical Mathematics','Should have Bachelors in Mathematics','2','Masters in Mathematics');
+
+alter table Programs_Offered modify Degree_certificate_offered varchar2(50);
+
+insert into Programs_Offered values ('Business','Students learn marketing,management principles','Should have Grad Degree in any stream','2','Master of Business Administration');
+
+select * from Programs_Offered;
+
+select * from programs_scheduled;
+
+
+
+Create sequence schedule_sequence
+start with 1
+increment by 1
+nocache
+nocycle;
+
+alter table programs_scheduled modify (SCHEDULED_PROGRAM_ID varchar2(30),programname varchar2(30),location varchar2(40));
+
+
+insert into programs_scheduled values (schedule_sequence.nextval,'Statistics','EcoSpace',TO_DATE('12/01/2019', 'DD/MM/YYYY'),TO_DATE('12/01/2021', 'DD/MM/YYYY'),4);
+
+insert into programs_scheduled values (schedule_sequence.nextval,'Mathematics','EPIP',TO_DATE('2/01/2019', 'DD/MM/YYYY'),TO_DATE('2/01/2021', 'DD/MM/YYYY'),5);
+
+insert into programs_scheduled values (schedule_sequence.nextval,'Business','ATP',TO_DATE('21/01/2019', 'DD/MM/YYYY'),TO_DATE('21/01/2021', 'DD/MM/YYYY'),3);
+
+Create Table Application(APPLICATION_ID NUMBER Primary Key,FULL_NAME VARCHAR2(40),DATE_OF_BIRTH DATE,HIGHEST_QUALIFICATION VARCHAR2(30),MARKS_OBTAINED NUMBER,GOALS VARCHAR2(30),EMAIL_ID VARCHAR2(20),SCHEDULED_PROGRAM_ID VARCHAR2(5),STATUS VARCHAR2(10),DATE_OF_INTERVIEW DATE);
+
+
+
+Create table Participant(Roll_No Varchar2(5) Primary Key,EMAIL_ID Varchar2(20),APPLICATION_ID number,Scheduled_program_id Varchar2(5));
+Alter table Participant add Foreign Key (APPLICATION_ID) references Application(APPLICATION_ID);
+describe Application;
+desc programs_offered;
+desc programs_scheduled;
+desc Users;
+desc Participant;
+
+select * from Programs_Offered;
+select * from Programs_Scheduled;
+select * from Participant;
+select * from Application;
+select * from Users;
