@@ -46,9 +46,9 @@ public class UniversityMain {
 				switch (option) {
                 
 				case 1: 
-					while (usersBean == null) {
+				//	while (usersBean == null) {
 						usersBean = populateUsersBean();
-					}
+				//	}
 
 				    	//Code to verify Password
 					if(true)
@@ -103,12 +103,114 @@ public class UniversityMain {
 							}
 						}
 					}
+				case 2: 
+				//	while (usersBean == null) {
+						usersBean = populateUsersBean();
+				//	}
+
+				    	//Code to verify Password
+					if(true)
+					{
+						//password matches
+						while (true) {
+
+							// code to show menu
+							System.out.println();
+							System.out.println();
+							System.out.println("  MAC Login ");
+							System.out.println("_______________________________\n");
+
+							System.out.println("1. View list of Applicants for Specific program");
+							System.out.println("2. Accept an Application for specific Program");
+							System.out.println("3. Reject an application for specific Program");
+							System.out.println("4. Delete a Program Scheduled");
+							System.out.println("5. View list of Applicants for Scheduled program");
+							System.out.println("________________________________");
+							System.out.println("Select an option from the above:");
+							// accept option
+
+							try {
+								option = sc.nextInt();
+								switch (option) {
+				                
+								case 1: 
+									while (programsOfferedBean == null) {
+										programsOfferedBean = populateprogramsOfferedBean();
+										//edit populateprogramsOfferedBean method
+									}
+									//code for storing program details
+									
+								case 2:
+									/* code to show available programs offered and 
+									ask him to select which one he wants to delete by ID */
+								case 3: 
+									while (programsScheduledBean == null) {
+										programsScheduledBean = populateprogramsScheduledBean();
+										//edit populateprogramsScheduledBean method
+									}
+									//code for storing program details
+								case 4:
+									/* code to show available programs scheduled and 
+									ask him to select which one he wants to delete by ID */
+								case 5:
+									/* code to view application status based on program schedule ID */
+								}
+							
+							} finally {
+								System.out.println("");
+							}
+						}
+					}	
+				case 3:
+					
+					if(true)
+					{
+						//password matches
+						while (true) {
+
+							// code to show menu
+							System.out.println();
+							System.out.println();
+							System.out.println("  Student Check-in ");
+							System.out.println("_______________________________\n");
+
+							System.out.println("1. Apply Now");
+							System.out.println("2. View Application Status");
+							System.out.println("________________________________");
+							System.out.println("Select an option from the above:");
+							// accept option
+
+							try {
+								option = sc.nextInt();
+								switch (option) {
+				                
+								case 1: 
+									while (applicationBean == null) {
+										applicationBean = populateApplicationBean();
+										//edit populateApplicationBean() method
+									}
+									//code for storing applicant details
+									
+								case 2:
+									
+								}
+							
+							} finally {
+								System.out.println("");
+							}
+						}
+					}
 				}
 
 			} finally {
 				System.out.println("");
 			}
 		}
+	}
+
+	private static Application populateApplicationBean() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private static ProgramsScheduled populateprogramsScheduledBean() {
