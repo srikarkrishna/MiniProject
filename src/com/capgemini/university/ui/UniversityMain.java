@@ -11,12 +11,14 @@ import com.capgemini.university.bean.Participant;
 import com.capgemini.university.bean.ProgramsOffered;
 import com.capgemini.university.bean.ProgramsScheduled;
 import com.capgemini.university.bean.Users;
+import com.capgemini.university.exception.UniversityException;
+import com.capgemini.university.service.University_service_impl;
 
 public class UniversityMain {
 	static Scanner sc = new Scanner(System.in);
 	static Logger logger = Logger.getRootLogger();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UniversityException {
 		// TODO Auto-generated method stub
 		PropertyConfigurator.configure("resources//log4j.properties");
 		Application applicationBean = null;
@@ -26,7 +28,7 @@ public class UniversityMain {
 		Users usersBean = null;
 		int option = 0;
 
-		while (true) {
+		while(true){
 
 			// code to show menu
 			System.out.println();
@@ -38,7 +40,7 @@ public class UniversityMain {
 			System.out.println("2. Login as MAC");
 			System.out.println("3. Check-in as a Student");
 			System.out.println("________________________________");
-			System.out.println("Select an option from the above:");
+			System.out.println("Select an option to login as one of the above:");
 			// accept option
 
 			try {
@@ -46,12 +48,14 @@ public class UniversityMain {
 				switch (option) {
                 
 				case 1: 
-					while (usersBean == null) {
+					while(usersBean == null) {
 						usersBean = populateUsersBean();
 					}
+					
+					University_service_impl check_obj=new University_service_impl();
 
 				    	//Code to verify Password
-					if(true)
+					if(check_obj.check_login(usersBean))
 					{
 						//password matches
 						while (true) {
@@ -134,7 +138,7 @@ public class UniversityMain {
 		if (sc.hasNextLine()) {
 			usersBean.setPassword(sc.nextLine());
 		}
-		return null;
+		return usersBean;
 	}
 
 }

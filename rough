@@ -1,0 +1,30 @@
+// code to show menu
+			System.out.println();
+			System.out.println();
+			System.out.println("  University Admission System ");
+			System.out.println("_______________________________\n");
+
+			System.out.println("1. Login as Admin ");
+			System.out.println("2. Login as MAC");
+			System.out.println("3. Check-in as a Student");
+			System.out.println("________________________________");
+			System.out.println("Select an option from the above:");
+			// accept option
+			
+			
+System.out.println();
+							System.out.println();
+							System.out.println("  Admin Login ");
+							System.out.println("_______________________________\n");
+
+							System.out.println("1. Add a new Offered Program");
+							System.out.println("2. Delete a Program Offered");
+							System.out.println("3. Add a new Scheduled Program");
+							System.out.println("4. Delete a Program Scheduled");
+							System.out.println("5. View list of Applicants for Scheduled program");
+							System.out.println("________________________________");
+							System.out.println("Select an option from the above:");
+							// accept option
+							
+							
+							
