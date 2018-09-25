@@ -1,6 +1,10 @@
 package com.capgemini.university.ui;
 
 import java.io.Console;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -18,7 +22,7 @@ public class UniversityMain {
 	static Scanner sc = new Scanner(System.in);
 	static Logger logger = Logger.getRootLogger();
 
-	public static void main(String[] args) throws UniversityException {
+	public static void main(String[] args) throws UniversityException, ParseException {
 		// TODO Auto-generated method stub
 		PropertyConfigurator.configure("resources//log4j.properties");
 		Application applicationBean = null;
@@ -52,10 +56,10 @@ public class UniversityMain {
 						usersBean = populateUsersBean();
 					}
 					
-					University_service_impl check_obj=new University_service_impl();
+					University_service_impl university_obj=new University_service_impl();
 
 				    	//Code to verify Password
-					if(check_obj.check_login(usersBean))
+					if(university_obj.check_login(usersBean))
 					{
 						//password matches
 						while (true) {
@@ -82,22 +86,35 @@ public class UniversityMain {
 								case 1: 
 									while (programsOfferedBean == null) {
 										programsOfferedBean = populateprogramsOfferedBean();
-										//edit populateprogramsOfferedBean method
 									}
-									//code for storing program details
+									university_obj.add_program(programsOfferedBean);
 									
 								case 2:
 									/* code to show available programs offered and 
 									ask him to select which one he wants to delete by ID */
+									university_obj.display_programs();
+									System.out.println("Enter the program name to be deleted");
+									String program_name=sc.nextLine();
+									university_obj.delete_program(program_name);
+									
 								case 3: 
 									while (programsScheduledBean == null) {
 										programsScheduledBean = populateprogramsScheduledBean();
 										//edit populateprogramsScheduledBean method
 									}
 									//code for storing program details
+									
+									university_obj.add_schedule(programsScheduledBean);
+									
 								case 4:
 									/* code to show available programs scheduled and 
 									ask him to select which one he wants to delete by ID */
+									
+									university_obj.display_schedules();
+									System.out.println("Enter the program name to be deleted");
+									int schedule_id=sc.nextInt();
+									
+									university_obj.delete_schedule(schedule_id);
 								case 5:
 									/* code to view application status based on program schedule ID */
 								}
@@ -115,14 +132,70 @@ public class UniversityMain {
 		}
 	}
 
-	private static ProgramsScheduled populateprogramsScheduledBean() {
-		// TODO Auto-generated method stub
-		return null;
+	private static ProgramsScheduled populateprogramsScheduledBean() throws ParseException {
+		ProgramsScheduled program_scheduled=new ProgramsScheduled();
+		sc.nextLine();
+		
+		Calendar c=Calendar.getInstance();
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		long currentDateTime = System.currentTimeMillis();
+		
+		
+		System.out.println("Enter scheduledProgramId: ");
+		if (sc.hasNextLine()) {
+			program_scheduled.setScheduledProgramId(sc.nextLine());
+		}
+		System.out.println("Enter programName: ");
+		if (sc.hasNextLine()) {
+			program_scheduled.setProgramName(sc.nextLine());
+		}
+		System.out.println("Enter location: ");
+		if (sc.hasNextLine()) {
+			program_scheduled.setLocation(sc.nextLine());;
+		}
+		System.out.println("Enter startDate: ");
+		if (sc.hasNextLine()) {
+			Date start=sdf.parse(sc.nextLine());
+			program_scheduled.setStartDate(start);
+		}
+		System.out.println("Enter endDate: ");
+		if (sc.hasNextLine()) {
+			Date end=sdf.parse(sc.nextLine());
+			program_scheduled.setEndDate(end);
+		}
+		System.out.println("Enter sessionsPerWeek: ");
+		if (sc.hasNextLine()) {
+			program_scheduled.setSessionsPerWeek(sc.nextInt());
+		}
+		
+		return program_scheduled;
 	}
 
 	private static ProgramsOffered populateprogramsOfferedBean() {
-		// TODO Auto-generated method stub
-		return null;
+		ProgramsOffered program_offered=new ProgramsOffered();
+		sc.nextLine();
+		System.out.println("Enter programName: ");
+		if (sc.hasNextLine()) {
+			program_offered.setProgramName(sc.nextLine());
+		}
+		System.out.println("Enter description: ");
+		if (sc.hasNextLine()) {
+			program_offered.setDescription(sc.nextLine());
+		}
+		System.out.println("Enter applicantEligibility: ");
+		if (sc.hasNextLine()) {
+			program_offered.setApplicantEligibility(sc.nextLine());;
+		}
+		System.out.println("Enter duration: ");
+		if (sc.hasNextLine()) {
+			program_offered.setDuration(sc.nextInt());
+		}
+		System.out.println("Enter degreeCertificateOffered: ");
+		if (sc.hasNextLine()) {
+			program_offered.setDegreeCertificateOffered(sc.nextLine());
+		}
+		
+		return program_offered;
 	}
 
 	private static Users populateUsersBean() {

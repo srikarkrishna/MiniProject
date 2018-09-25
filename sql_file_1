@@ -1,0 +1,46 @@
+SQL> select * from Users;
+
+LOGIN_ID             PASSWORD   ROLE
+-------------------- ---------- -----
+adda                 laxman     admin
+
+SQL> select * from Programs_Offered;
+
+PROGRAMNAME     DESCRIPTION
+--------------- --------------------------------------------------
+APPLICANT_ELIGIBILITY                                DURATION
+-------------------------------------------------- ----------
+DEGREE_CERTIFICATE_OFFERED
+--------------------------------------------------
+Statistics      Covers courses like Probability,Data Science
+Should have Completed Graduation in any stream              2
+Post Graddegree in Statistics
+
+Mathematics     Introduction to Thereotical Mathematics
+Should have Bachelors in Mathematics                        2
+Masters in Mathematics
+
+PROGRAMNAME     DESCRIPTION
+--------------- --------------------------------------------------
+APPLICANT_ELIGIBILITY                                DURATION
+-------------------------------------------------- ----------
+DEGREE_CERTIFICATE_OFFERED
+--------------------------------------------------
+
+
+SQL> select * from Programs_Scheduled;
+
+no rows selected
+
+SQL> describe Programs_Scheduled;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ SCHEDULED_PROGRAM_ID                               VARCHAR2(30)
+ PROGRAMNAME                                        VARCHAR2(30)
+ LOCATION                                           VARCHAR2(40)
+ START_DATE                                         DATE
+ END_DATE                                           DATE
+ SESSIONS_PER_WEEK                                  NUMBER
+
+SQL>
