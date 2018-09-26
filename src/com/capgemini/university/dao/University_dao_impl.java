@@ -159,8 +159,8 @@ public class University_dao_impl implements University_dao{
 			p.setString(1,program.getScheduledProgramId());
 			p.setString(2,program.getProgramName());
 			p.setString(3,program.getLocation());
-			p.setDate(4,(Date) program.getStartDate());
-			p.setDate(5,(Date) program.getEndDate());
+			p.setString(4,program.getStartDate());
+			p.setString(5,program.getEndDate());
 			p.setInt(6,program.getSessionsPerWeek());
 			
 			int success=p.executeUpdate();
@@ -212,17 +212,76 @@ public class University_dao_impl implements University_dao{
 	}
 
 	@Override
-	public void delete_schedule_dao(int schedule_id) throws UniversityException {
+	public void delete_schedule_dao(String schedule_id) throws UniversityException {
 		Connection conn=DBConnection.getInstance().getConnection();	
 		PreparedStatement ps=null;
 		try{
 			ps=conn.prepareStatement(QueryMapper.delete_Schedule);
-			ps.setInt(1,schedule_id);;
+			ps.setString(1,schedule_id);;
 			int success=ps.executeUpdate();
 			if(success==0){
 				System.out.println("Deletion failed");
 			}else{
 				System.out.println("The record with schedule_id "+schedule_id+" deleted");
+			}
+			
+		}catch (SQLException sqlException) {
+			log.error(sqlException.getMessage());
+			System.out.println(sqlException.getMessage());
+		}
+		finally{
+			try {
+				ps.close();
+				conn.close();
+			}catch (SQLException s){
+				s.printStackTrace();
+				log.error(s.getMessage());
+			}
+		}
+	}
+
+	@Override
+	public void schedules_between_time_interval_dao(String start,String end) throws UniversityException {
+		Connection conn=DBConnection.getInstance().getConnection();	
+		PreparedStatement ps=null;
+		ResultSet rs = null;
+		
+		try{
+			ps=conn.prepareStatement(QueryMapper.schedules_between_time_interval);
+			ps.setString(1,start);
+			ps.setString(2,end);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getDate("start_date")+"\t"+rs.getDate("end_date")+"\t"+rs.getInt("SESSIONS_PER_WEEK"));
+			}
+			
+		}catch (SQLException sqlException) {
+			log.error(sqlException.getMessage());
+			System.out.println(sqlException.getMessage());
+		}
+		finally{
+			try {
+				ps.close();
+				conn.close();
+			}catch (SQLException s){
+				s.printStackTrace();
+				log.error(s.getMessage());
+			}
+		}
+	}
+
+	@Override
+	public void schedule_applicant_status(String schedule_id) throws UniversityException {
+		Connection conn=DBConnection.getInstance().getConnection();	
+		PreparedStatement ps=null;
+		ResultSet rs = null;
+		
+		try{
+			ps=conn.prepareStatement(QueryMapper.schedule_applicant_status);
+			ps.setString(1,schedule_id);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getInt("APPLICATION_ID")+"\t"+rs.getString("status")+"\t"+rs.getString("scheduled_program_id"));
 			}
 			
 		}catch (SQLException sqlException) {

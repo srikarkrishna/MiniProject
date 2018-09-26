@@ -4,7 +4,6 @@ import java.io.Console;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -75,11 +74,13 @@ public class UniversityMain {
 							System.out.println("3. Add a new Scheduled Program");
 							System.out.println("4. Delete a Program Scheduled");
 							System.out.println("5. View list of Applicants for Scheduled program");
+							System.out.println("6. View list of programs scheduled to commence in a give time period");
 							System.out.println("________________________________");
 							System.out.println("Select an option from the above:");
 							// accept option
 
 							try {
+								String schedule_id;
 								option = sc.nextInt();
 								switch (option) {
 				                
@@ -88,14 +89,18 @@ public class UniversityMain {
 										programsOfferedBean = populateprogramsOfferedBean();
 									}
 									university_obj.add_program(programsOfferedBean);
+									break;
 									
 								case 2:
 									/* code to show available programs offered and 
 									ask him to select which one he wants to delete by ID */
 									university_obj.display_programs();
+									sc.nextLine();
 									System.out.println("Enter the program name to be deleted");
 									String program_name=sc.nextLine();
+									System.out.println("Enter the program name to be deleted");
 									university_obj.delete_program(program_name);
+									break;
 									
 								case 3: 
 									while (programsScheduledBean == null) {
@@ -105,19 +110,38 @@ public class UniversityMain {
 									//code for storing program details
 									
 									university_obj.add_schedule(programsScheduledBean);
-									
+									break;
 								case 4:
 									/* code to show available programs scheduled and 
 									ask him to select which one he wants to delete by ID */
 									
 									university_obj.display_schedules();
-									System.out.println("Enter the program name to be deleted");
-									int schedule_id=sc.nextInt();
+									sc.nextLine();
+									System.out.println("Enter the schedule id to be deleted");
+									schedule_id=sc.nextLine();
 									
 									university_obj.delete_schedule(schedule_id);
+									break;
 								case 5:
 									/* code to view application status based on program schedule ID */
-								}
+									university_obj.display_schedules();
+									sc.nextLine();
+									System.out.println("Enter the schedule id to view applicants status for that scheduled program ");
+									schedule_id=sc.nextLine();
+									
+									break;
+								case 6:
+									sc.nextLine();
+									System.out.println("Please enter the interval starting");
+									String start_interval=sc.nextLine();
+									System.out.println("Please enter the interval ending");
+									String end_interval=sc.nextLine();
+									university_obj.schedules_between_time_interval(start_interval, end_interval);
+									break;
+									
+								default:
+									System.out.println("Please Enter value from 1 to 6");
+								}						
 							
 							} finally {
 								System.out.println("");
@@ -135,12 +159,7 @@ public class UniversityMain {
 	private static ProgramsScheduled populateprogramsScheduledBean() throws ParseException {
 		ProgramsScheduled program_scheduled=new ProgramsScheduled();
 		sc.nextLine();
-		
-		Calendar c=Calendar.getInstance();
-		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
-		long currentDateTime = System.currentTimeMillis();
-		
-		
+	
 		System.out.println("Enter scheduledProgramId: ");
 		if (sc.hasNextLine()) {
 			program_scheduled.setScheduledProgramId(sc.nextLine());
@@ -155,13 +174,11 @@ public class UniversityMain {
 		}
 		System.out.println("Enter startDate: ");
 		if (sc.hasNextLine()) {
-			Date start=sdf.parse(sc.nextLine());
-			program_scheduled.setStartDate(start);
+			program_scheduled.setStartDate(sc.nextLine());
 		}
 		System.out.println("Enter endDate: ");
 		if (sc.hasNextLine()) {
-			Date end=sdf.parse(sc.nextLine());
-			program_scheduled.setEndDate(end);
+			program_scheduled.setEndDate(sc.nextLine());
 		}
 		System.out.println("Enter sessionsPerWeek: ");
 		if (sc.hasNextLine()) {
@@ -190,6 +207,7 @@ public class UniversityMain {
 		if (sc.hasNextLine()) {
 			program_offered.setDuration(sc.nextInt());
 		}
+		sc.nextLine();
 		System.out.println("Enter degreeCertificateOffered: ");
 		if (sc.hasNextLine()) {
 			program_offered.setDegreeCertificateOffered(sc.nextLine());

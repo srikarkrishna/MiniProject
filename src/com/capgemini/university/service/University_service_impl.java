@@ -1,5 +1,7 @@
 package com.capgemini.university.service;
 
+import java.sql.Date;
+
 import com.capgemini.university.bean.ProgramsOffered;
 import com.capgemini.university.bean.ProgramsScheduled;
 import com.capgemini.university.bean.Users;
@@ -40,8 +42,18 @@ public class University_service_impl implements University_service{
 	}
 
 	@Override
-	public void delete_schedule(int schedule_id) throws UniversityException {
+	public void delete_schedule(String schedule_id) throws UniversityException {
 		dao_obj.delete_schedule_dao(schedule_id);
+	}
+
+	@Override
+	public void schedules_between_time_interval(String start, String end) throws UniversityException {
+		dao_obj.schedules_between_time_interval_dao(start, end);
+	}
+
+	@Override
+	public void schedule_applicant_status(String schedule_id) throws UniversityException {
+		dao_obj.schedule_applicant_status(schedule_id);
 	}
 	
 }
