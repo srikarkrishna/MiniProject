@@ -6,7 +6,7 @@ public class Application {
 
 	private String applicationId;
 	private String fullName;
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String highestQualification;
 	private int marksObtained;
 	private String goals;
@@ -28,10 +28,10 @@ public class Application {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getHighestQualification() {
