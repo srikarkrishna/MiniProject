@@ -4,6 +4,7 @@ import java.io.Console;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
@@ -184,6 +185,33 @@ public class UniversityMain {
 									switch (option) {
 										case 1:
 											System.out.println("Please enter the program name for which you want to view the applications");
+											String program_name=sc.nextLine();
+											List<Application> applications=new ArrayList<Application>();
+											applications=mac_service_obj.display_application(program_name);
+											for(Application a:applications){
+												System.out.println(a.getApplicationId()+"\t"+a.getFullName()+"\t"+a.getDateOfBirth()+"\t"+a.getEmailId()+"\t"+a.getHighestQualification()+"\t"+a.getMarksObtained()+"\t"+a.getGoals());
+											}
+											break;
+										
+										case 2:
+											System.out.println("Enter the application ID you want to approve or reject for interview");
+											int app_id=sc.nextInt();
+											System.out.println("Do you want to approve or reject the application with the above application ID");
+											if(sc.nextLine().equals("approve")){
+												int success=mac_service_obj.update_inteview_date(app_id);
+												if(success==1){
+													System.out.println("He is selected for interview and updated the interview date");
+												}else{
+													System.out.println("Updating interview date failed");
+												}
+											}else{
+												int success=mac_service_obj.delete_application(app_id);
+												if(success==1){
+													System.out.println("His application is deleted");
+												}else{
+													System.out.println("Deleting his application failed");
+												}
+											}
 											
 									}						
 								
