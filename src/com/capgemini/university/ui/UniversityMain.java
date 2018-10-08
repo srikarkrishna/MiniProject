@@ -313,6 +313,7 @@ public class UniversityMain {
 		if (sc.hasNextLine()) {
 			app_bean.setMarksObtained(sc.nextInt());
 		}
+		sc.nextLine();
 		System.out.println("Enter goals: ");
 		if (sc.hasNextLine()) {
 			app_bean.setGoals(sc.nextLine());

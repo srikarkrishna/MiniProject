@@ -13,7 +13,7 @@ public interface QueryMapper {
 	public static String schedule_applicant_status="select application_id,status,scheduled_program_id from application group by scheduled_program_id,status having scheduled_program_id=?";
 
 	//for student
-	public static String insert_application="INSERT INTO APPLICATION  VALUES (?,?,?,?,?,?,?,?,?)";
+	public static String insert_application="INSERT INTO APPLICATION VALUES (?,?,TO_DATE(?,'dd/MM/yyyy'),?,?,?,?,?,?,TO_DATE(?,'dd/MM/yyyy'))";
 	public static String display_status="select status from application where application_id=?";
 	
 	//for MAC

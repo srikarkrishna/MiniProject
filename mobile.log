@@ -1,2 +1,11 @@
 2018-09-25-main-ERROR-root      :ORA-00904: "USER_ID": invalid identifier
 
+2018-10-08-main-ERROR-root      :ORA-00947: not enough values
+
+2018-10-08-main-ERROR-root      :ORA-00947: not enough values
+
+2018-10-08-main-ERROR-root      :ORA-01843: not a valid month
+
+2018-10-08-main-ERROR-root      :Invalid column index
+2018-10-08-main-ERROR-root      :ORA-00947: not enough values
+
