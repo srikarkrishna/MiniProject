@@ -168,4 +168,32 @@ public class MAC_dao_impl implements MAC_dao{
 		return 0;
 	}
 
+	@Override
+	public int update_status_dao(int app_id) throws UniversityException {
+		Connection conn=DBConnection.getInstance().getConnection();
+		PreparedStatement ps=null;		
+		ResultSet rs= null;
+		try{
+			int r=0;
+			ps=conn.prepareStatement(QueryMapper.update_status);
+			ps.setString(1,"Confirmed");
+			ps.setInt(2,app_id);
+			r=ps.executeUpdate();
+			return r;
+		}catch(SQLException sql){
+			log.error(sql.getMessage());
+			sql.printStackTrace();
+		}
+		finally{
+			try {
+				ps.close();
+				conn.close();
+			}catch (SQLException sqlException){
+				sqlException.printStackTrace();
+				log.error(sqlException.getMessage());
+			}
+		}
+		return 0;
+	}
+
 }

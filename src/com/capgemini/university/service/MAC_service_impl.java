@@ -38,5 +38,11 @@ public class MAC_service_impl implements MAC_service{
 		mac_dao_obj =new MAC_dao_impl();
 		return mac_dao_obj.delete_application_dao(app_id);
 	}
+
+	@Override
+	public int update_status(int app_id) throws UniversityException {
+		mac_dao_obj =new MAC_dao_impl();
+		return mac_dao_obj.update_status_dao(app_id);
+	}
 	
 }

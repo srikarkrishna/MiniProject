@@ -136,7 +136,7 @@ public class UniversityMain {
 											sc.nextLine();
 											System.out.println("Enter the schedule id to view applicants status for that scheduled program ");
 											schedule_id=sc.nextLine();
-											
+											university_obj.schedule_applicant_status(schedule_id);
 											break;
 										case 6:
 											sc.nextLine();
@@ -182,6 +182,7 @@ public class UniversityMain {
 	
 								try {
 									option = sc.nextInt();
+									int app_id;
 									switch (option) {
 										case 1:
 											System.out.println("Please enter the program name for which you want to view the applications");
@@ -195,8 +196,8 @@ public class UniversityMain {
 										
 										case 2:
 											System.out.println("Enter the application ID you want to approve or reject for interview");
-											int app_id=sc.nextInt();
-											System.out.println("Do you want to approve or reject the application with the above application ID");
+											app_id=sc.nextInt();
+											System.out.println("Type approve to select for interview");
 											if(sc.nextLine().equals("approve")){
 												int success=mac_service_obj.update_inteview_date(app_id);
 												if(success==1){
@@ -212,7 +213,26 @@ public class UniversityMain {
 													System.out.println("Deleting his application failed");
 												}
 											}
-											
+										
+										case 3:
+											System.out.println("Enter the application ID for which you want to update the application status");
+											app_id=sc.nextInt();
+											System.out.println("Type approve to select for interview");
+											if(sc.nextLine().equals("approve")){
+												int success=mac_service_obj.update_status(app_id);
+												if(success==1){
+													System.out.println("Status is updated to Confirmed");
+												}else{
+													System.out.println("Failed to update the status as Confirmed");
+												}
+											}else{
+												int success=mac_service_obj.delete_application(app_id);
+												if(success==1){
+													System.out.println("Deleted the application fromt the database");
+												}else{
+													System.out.println("Failed to delete the application");
+												}
+											}
 									}						
 								
 								} finally {

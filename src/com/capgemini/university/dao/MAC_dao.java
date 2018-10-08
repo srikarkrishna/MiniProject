@@ -12,4 +12,5 @@ public interface MAC_dao {
 	public List<Application> display_application_dao(String program_name) throws UniversityException;
 	public int update_interview_date_dao(int app_id) throws UniversityException;
 	public int delete_application_dao(int app_id) throws UniversityException;
+	public int update_status_dao(int app_id) throws UniversityException;
 }

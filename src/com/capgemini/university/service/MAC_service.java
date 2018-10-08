@@ -12,5 +12,5 @@ public interface MAC_service {
 	public List<Application> display_application(String program_name) throws UniversityException;
 	public int update_inteview_date(int app_id) throws UniversityException;
 	public int delete_application(int app_id) throws UniversityException;
-	
+	public int update_status(int app_id) throws UniversityException;
 }
