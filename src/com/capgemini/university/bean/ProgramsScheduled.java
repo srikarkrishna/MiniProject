@@ -1,6 +1,5 @@
 package com.capgemini.university.bean;
 
-import java.sql.Date;
 
 public class ProgramsScheduled {
 	
@@ -8,8 +7,8 @@ public class ProgramsScheduled {
 	private String scheduledProgramId;
 	private String programName;
 	private String location;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private int sessionsPerWeek;
 	
 	
@@ -31,16 +30,16 @@ public class ProgramsScheduled {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 	public int getSessionsPerWeek() {
@@ -50,4 +49,48 @@ public class ProgramsScheduled {
 		this.sessionsPerWeek = sessionsPerWeek;
 	}
 
+	public String toString()
+	{
+		int n=0;
+		StringBuilder sb = new StringBuilder();
+		sb.append( scheduledProgramId);
+		n=17-scheduledProgramId.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( programName);
+		n=16-programName.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( location);
+		n=16-location.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( startDate.substring(0, 10));
+		n=6;
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( endDate.substring(0, 10));
+		n=12;
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( sessionsPerWeek);
+		return sb.toString();
+		
+	}
+	
 }

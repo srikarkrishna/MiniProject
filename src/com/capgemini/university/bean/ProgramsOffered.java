@@ -42,4 +42,40 @@ public class ProgramsOffered {
 		this.degreeCertificateOffered = degreeCertificateOffered;
 	}
 
+	public String toString()
+	{
+		int n=0;
+		StringBuilder sb = new StringBuilder();
+		sb.append( programName);
+		n=17-programName.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( description);
+		n=24-description.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( applicantEligibility);
+		n=48-applicantEligibility.length();
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( duration+" years");
+		n=9;
+		while(n>0)
+		{
+			sb.append(" ");
+			n--;
+		}
+		sb.append( degreeCertificateOffered);
+		return sb.toString();	
+	}
+	
 }

@@ -1,0 +1,235 @@
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Program Name should be of at least 3 alphabets not more than 5 characters long ! 
+, 
+ Description should be of at least 3 alphabets not more than 20 characters long 
+, 
+ Applicaiton Eligibility should be of at least 3 alphabets not more than 40 characters long 
+, 
+ Duration should be a number in years not more than one digit less than 6 
+, 
+ Degree Certificate Offered should be of at least 3 alphabets not more than 10 characters long 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:115)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsOfferedBean(UniversityMain.java:313)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:93)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Program Name should be of at least 3 alphabets not more than 5 characters long!! 
+, 
+ Description should be of at least 3 alphabets not more than 20 characters long!!
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:133)
+	at com.capgemini.university.ui.UniversityMain.populateUsersBean(UniversityMain.java:342)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:61)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Password should be of at least 6 characters(A-Z,a-z,0-9,.,_,#,%,^,*,?,@,-) not more than 10 characters long!!
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:168)
+	at com.capgemini.university.ui.UniversityMain.populateUsersBean(UniversityMain.java:355)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:61)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Description should be of at least 3 alphabets not more than 20 characters long!!
+, 
+ Duration should be a number in years not more than one digit less than 6!! 
+, 
+ Duration should be a number in years not more than one digit less than 6!! 
+, 
+ Degree Certificate Offered should be of at least 3 alphabets not more than 10 characters long!! 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:149)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:285)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:138)
+2018-10-06-main-ERROR-root      :ORA-01843: not a valid month
+
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Date should be in (dd-mm-yyyy) format 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:151)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:285)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:138)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Sessions per week must have 2 digits(Ex: 03,15,00) and should be less than 20 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:151)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:285)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:138)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Date should be in proper format(dd-mm-yyyy) and in near future(<2030) 
+, 
+ Date should be in proper format(dd-mm-yyyy) and in near future(<2030) 
+, 
+ Sessions per week must have 2 digits(Ex: 03,15,00) and should be less than 20 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:151)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:285)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:138)
+2018-10-06-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Date should be in proper format(dd-mm-yyyy) and in near future(<2030) 
+, 
+ Date should be in proper format(dd-mm-yyyy) and in near future(<2030) 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:151)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:285)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:138)
+2018-10-08-main-ERROR-root      :SQL statement to execute cannot be empty or null
+2018-10-08-main-ERROR-root      :Missing IN or OUT parameter at index:: 10
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Name should be of at least 3 alphabets not more than 20 characters long!! 
+, 
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+, 
+ Qualification should be of at least 3 alphabets not more than 10 characters long!! 
+, 
+ Marks should be a number less than or equal to 100!! 
+, 
+ Goals should be of at least 5 alphabets not more than 20 characters long!! 
+, 
+ EmailId should be in standard email format not more than 20 charecters long!! 
+, 
+ Program Id should be of at least 3 alphabets not more than 5 characters long!! 
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :ORA-01839: date not valid for month specified
+
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:430)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:431)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:431)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:431)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Goals should be of at least 5 alphabets not more than 20 characters long!! 
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:431)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-08-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:74)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:431)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:352)
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :Fail to convert to internal representation
+2018-10-09-main-ERROR-root      :ORA-00911: invalid character
+
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Program Id should be of at least 3 alphabets not more than 5 characters long!! 
+]
+	at com.capgemini.university.service.MACService.validateRequest(MACService.java:92)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:325)
+2018-10-09-main-ERROR-root      :ORA-12899: value too large for column "SYSTEM"."APPLICATION"."EMAIL_ID" (actual: 24, maximum: 20)
+
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Program Name should be of at least 3 alphabets not more than 20 characters long!!
+, 
+ Date should be in proper format(dd-mm-yyyy) and in near future(<2030) 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:149)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsScheduledBean(UniversityMain.java:681)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:155)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Description should be of at least 3 alphabets not more than 20 characters long!!
+, 
+ Applicaiton Eligibility should be of at least 3 alphabets not more than 40 characters long!! 
+, 
+ Degree Certificate Offered should be of at least 3 alphabets not more than 10 characters long!! 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:115)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsOfferedBean(UniversityMain.java:728)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:110)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Description should be of at least 3 alphabets not more than 20 characters long!!
+, 
+ Degree Certificate Offered should be of at least 3 alphabets not more than 10 characters long!! 
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:115)
+	at com.capgemini.university.ui.UniversityMain.populateprogramsOfferedBean(UniversityMain.java:728)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:110)
+2018-10-09-main-ERROR-root      :ORA-00001: unique constraint (SYSTEM.SYS_C007217) violated
+
+2018-10-09-main-ERROR-root      :ORA-00001: unique constraint (SYSTEM.SYS_C007217) violated
+
+2018-10-09-main-ERROR-root      :ORA-01839: date not valid for month specified
+
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy & year<2010,>1980)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:78)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:636)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:446)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ DateOfBirth should be should be in proper format(dd-mm-yyyy & age under 30 years)!!
+]
+	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:78)
+	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:636)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:446)
