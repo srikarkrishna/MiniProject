@@ -28,9 +28,9 @@ public class MAC_service_impl implements MAC_service{
 	}
 
 	@Override
-	public int update_inteview_date(int app_id) throws UniversityException {
+	public int update_inteview_date(int app_id,String date) throws UniversityException {
 		mac_dao_obj =new MAC_dao_impl();
-		return mac_dao_obj.update_interview_date_dao(app_id);
+		return mac_dao_obj.update_interview_date_dao(app_id,date);
 	}
 
 	@Override
@@ -43,6 +43,12 @@ public class MAC_service_impl implements MAC_service{
 	public int update_status(int app_id) throws UniversityException {
 		mac_dao_obj =new MAC_dao_impl();
 		return mac_dao_obj.update_status_dao(app_id);
+	}
+
+	@Override
+	public List<ProgramsOffered> display_programs() throws UniversityException {
+		mac_dao_obj =new MAC_dao_impl();
+		return mac_dao_obj.display_programs_dao();
 	}
 	
 }

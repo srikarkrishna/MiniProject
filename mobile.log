@@ -9,3 +9,19 @@
 2018-10-08-main-ERROR-root      :Invalid column index
 2018-10-08-main-ERROR-root      :ORA-00947: not enough values
 
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :ORA-00904: "P"."SCHEDULED_PROGRAM_ID": invalid identifier
+
+2018-10-09-main-ERROR-root      :Fail to convert to internal representation
+2018-10-09-main-ERROR-root      :Missing IN or OUT parameter at index:: 10
+2018-10-09-main-ERROR-root      :ORA-00942: table or view does not exist
+
+2018-10-09-main-ERROR-root      :ORA-01843: not a valid month
+

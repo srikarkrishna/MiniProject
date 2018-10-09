@@ -100,6 +100,7 @@ public class student_dao_impl implements student_dao{
 			p.setString(7,app.getEmailId());
 			p.setString(8,app.getScheduledProgramId());
 			p.setString(9,"Applied");
+			p.setString(10,"");
 			//p.setString(10,randomDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 			
 			int success=p.executeUpdate();

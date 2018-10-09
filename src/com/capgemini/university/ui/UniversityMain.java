@@ -185,21 +185,32 @@ public class UniversityMain {
 									int app_id;
 									switch (option) {
 										case 1:
+											List<ProgramsOffered> p=mac_service_obj.display_programs();
+											System.out.println(p.size());
+											for(ProgramsOffered x:p){
+												System.out.println(x.getProgramName()+"\t"+x.getDescription()+"\t"+x.getApplicantEligibility()+"\t"+x.getDuration()+"\t"+x.getDegreeCertificateOffered());
+											}
 											System.out.println("Please enter the program name for which you want to view the applications");
+											
+											sc.nextLine();
 											String program_name=sc.nextLine();
 											List<Application> applications=new ArrayList<Application>();
-											applications=mac_service_obj.display_application(program_name);
+											applications=mac_service_obj.display_application(program_name);								
 											for(Application a:applications){
 												System.out.println(a.getApplicationId()+"\t"+a.getFullName()+"\t"+a.getDateOfBirth()+"\t"+a.getEmailId()+"\t"+a.getHighestQualification()+"\t"+a.getMarksObtained()+"\t"+a.getGoals());
 											}
 											break;
 										
 										case 2:
+											//show all applications for him to decide which application id he has to update
 											System.out.println("Enter the application ID you want to approve or reject for interview");
 											app_id=sc.nextInt();
+											sc.nextLine();
 											System.out.println("Type approve to select for interview");
 											if(sc.nextLine().equals("approve")){
-												int success=mac_service_obj.update_inteview_date(app_id);
+												System.out.println("Enter the date of interview for the applicant");
+												String interview_date=sc.nextLine();
+												int success=mac_service_obj.update_inteview_date(app_id,interview_date);
 												if(success==1){
 													System.out.println("He is selected for interview and updated the interview date");
 												}else{
@@ -213,10 +224,13 @@ public class UniversityMain {
 													System.out.println("Deleting his application failed");
 												}
 											}
+											break;
 										
 										case 3:
+											//show all applications for him to decide which application id he has to update
 											System.out.println("Enter the application ID for which you want to update the application status");
 											app_id=sc.nextInt();
+											sc.nextLine();
 											System.out.println("Type approve to select for interview");
 											if(sc.nextLine().equals("approve")){
 												int success=mac_service_obj.update_status(app_id);

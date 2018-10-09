@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class MAC_dao_impl implements MAC_dao{
 		PropertyConfigurator.configure("resources//log4j.properties");
 	}
 	
-	public static int createRandomIntBetween(int start, int end) {
+	/*
+	 * 
+	 * public static int createRandomIntBetween(int start, int end) {
         return start + (int) Math.round(Math.random() * (end - start));
     }
 	
@@ -37,6 +40,8 @@ public class MAC_dao_impl implements MAC_dao{
     }
 	
 	LocalDate randomDate = createRandomDate(2018, 2018);
+	
+	*/
 
 	@Override
 	public boolean check_login(Users userBean) throws UniversityException {
@@ -91,7 +96,7 @@ public class MAC_dao_impl implements MAC_dao{
 				s.setDateOfBirth(rs.getString("DATE_OF_BIRTH"));
 				s.setEmailId(rs.getString("EMAIL_ID"));
 				s.setHighestQualification(rs.getString("HIGHEST_QUALIFICATION"));
-				s.setMarksObtained(rs.getInt("HIGHEST_QUALIFICATION"));
+				s.setMarksObtained(rs.getInt("MARKS_OBTAINED"));
 				s.setGoals(rs.getString("GOALS"));
 				applications.add(s);
 			}
@@ -114,14 +119,14 @@ public class MAC_dao_impl implements MAC_dao{
 	}
 
 	@Override
-	public int update_interview_date_dao(int app_id) throws UniversityException {
+	public int update_interview_date_dao(int app_id,String date) throws UniversityException {
 		Connection conn=DBConnection.getInstance().getConnection();
 		PreparedStatement ps=null;		
 		ResultSet rs= null;
 		try{
 			int r=0;
 			ps=conn.prepareStatement(QueryMapper.update_interview_date);
-			ps.setString(1,randomDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			ps.setString(1,date); //randomDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
 			ps.setInt(2,app_id);
 			r=ps.executeUpdate();
 			return r;
@@ -194,6 +199,44 @@ public class MAC_dao_impl implements MAC_dao{
 			}
 		}
 		return 0;
+	}
+
+	@Override
+	public List<ProgramsOffered> display_programs_dao() throws UniversityException {
+		Connection conn=DBConnection.getInstance().getConnection();	
+		
+		Statement ps=null;
+		ResultSet rs = null;
+		
+		try{
+			ps=conn.createStatement();
+			rs=ps.executeQuery(QueryMapper.view_Programs_Offered);
+			List<ProgramsOffered> l=new ArrayList<ProgramsOffered>();
+			
+			while(rs.next()){
+				ProgramsOffered pro=new ProgramsOffered();
+				pro.setProgramName(rs.getString("PROGRAMNAME"));
+				pro.setDescription(rs.getString("DESCRIPTION"));
+				pro.setApplicantEligibility(rs.getString("APPLICANT_ELIGIBILITY"));
+				pro.setDuration(rs.getInt("DURATION"));
+				pro.setDegreeCertificateOffered(rs.getString("DEGREE_CERTIFICATE_OFFERED"));
+				l.add(pro);
+			}
+			return l;
+		}catch(SQLException s){
+			log.error(s.getMessage());
+			System.out.println(s.getMessage());
+		}finally{
+			try{
+				ps.close();
+				conn.close();
+			} 
+			catch (SQLException e){
+				log.error(e.getMessage());
+				System.out.println(e.getMessage());
+			}
+		}
+		return null;
 	}
 
 }

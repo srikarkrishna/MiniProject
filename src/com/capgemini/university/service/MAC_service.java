@@ -10,7 +10,8 @@ import com.capgemini.university.exception.UniversityException;
 public interface MAC_service {
 	public boolean check_login(Users userBean) throws UniversityException;
 	public List<Application> display_application(String program_name) throws UniversityException;
-	public int update_inteview_date(int app_id) throws UniversityException;
+	public int update_inteview_date(int app_id,String date) throws UniversityException;
 	public int delete_application(int app_id) throws UniversityException;
 	public int update_status(int app_id) throws UniversityException;
+	public List<ProgramsOffered> display_programs() throws UniversityException;
 }
