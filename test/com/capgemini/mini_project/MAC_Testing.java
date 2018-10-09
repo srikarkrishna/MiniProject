@@ -46,7 +46,7 @@ public class MAC_Testing {
 	
 	@Test
 	public void test_update_status() throws UniversityException {
-		Assert.assertEquals("Confirmed",mac.update_status_dao(7583));
+		Assert.assertEquals(1,mac.update_status_dao(7583));
 	}
 	
 	/*
