@@ -301,5 +301,22 @@ public class AdminService implements IAdminService{
 		return nameMatcher.matches();
 	}
 
+	public void validateRequest(String start_interval, String end_interval) throws ParseException,UniversityException {
+	
+			List<String> validationErrors = new ArrayList<String>();
+
+			// Validating donor name
+			if (!(isValidDate(start_interval))) {
+				validationErrors.add("\n Start Date should be in proper format(dd-mm-yyyy) and a future date  \n");
+			}
+			if (!(isValidDate(end_interval))) {
+				validationErrors.add("\n End Date should be in proper format(dd-mm-yyyy) and a future date  \n");
+			}
+			
+			if (!validationErrors.isEmpty())
+				throw new UniversityException(validationErrors + "");	
+		
+	}
+
 
 }

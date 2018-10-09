@@ -233,6 +233,19 @@ public class UniversityMain {
 									String start_interval=sc.nextLine();
 									System.out.println("\nPlease enter the end date(dd-mm-yyyy)");
 									String end_interval=sc.nextLine();
+									boolean dateCheck=false;
+									try {
+										adminSeviceImpl.validateRequest(start_interval,end_interval);
+										dateCheck=true;
+										
+									} catch (UniversityException universityException) {
+										logger.error("exception occured", universityException);
+										System.err.println("Invalid data:");
+										System.err.println(universityException.getMessage() + " \n Try again..");
+										System.exit(0);
+
+									}
+									if(dateCheck){
 									 List<ProgramsScheduled> programsScheduledList11 = new ArrayList<ProgramsScheduled>();
 										programsScheduledList11= adminService.scheduleByTimeInterval(start_interval, end_interval);
 										if (programsScheduledList11 != null) {
@@ -246,6 +259,7 @@ public class UniversityMain {
 											System.out
 													.println("\nNo Schedule Program is available in given interval.");
 										}
+									}
 									break;
 								case 7: 
 									System.out.println("");
@@ -466,7 +480,7 @@ public class UniversityMain {
 									
 								case 2:
 									studentService =new StudentService();
-									System.out.println("\nPlease enter your application_id");
+									System.out.println("\nPlease enter your application_id (Integer)");
 									int id=sc.nextInt();
 									String status=studentService.displayStatus(id);
 									if(status.isEmpty())

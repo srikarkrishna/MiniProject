@@ -233,3 +233,37 @@ com.capgemini.university.exception.UniversityException: [
 	at com.capgemini.university.service.StudentService.validateRequest(StudentService.java:78)
 	at com.capgemini.university.ui.UniversityMain.populateApplicationBean(UniversityMain.java:636)
 	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:446)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Start Date should be in proper format(dd-mm-yyyy) and a future date  
+, 
+ End Date should be in proper format(dd-mm-yyyy) and a future date  
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:317)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:238)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ End Date should be in proper format(dd-mm-yyyy) and a future date  
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:317)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:238)
+2018-10-09-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Start Date should be in proper format(dd-mm-yyyy) and a future date  
+, 
+ End Date should be in proper format(dd-mm-yyyy) and a future date  
+]
+	at com.capgemini.university.service.AdminService.validateRequest(AdminService.java:317)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:238)
+2018-10-10-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Interview Date should be in proper format(dd-mm-yyyy) and a future date 
+]
+	at com.capgemini.university.service.MACService.validateRequest(MACService.java:92)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:354)
+2018-10-10-main-ERROR-root      :exception occured
+com.capgemini.university.exception.UniversityException: [
+ Interview Date should be in proper format(dd-mm-yyyy) and a future date 
+]
+	at com.capgemini.university.service.MACService.validateRequest(MACService.java:92)
+	at com.capgemini.university.ui.UniversityMain.main(UniversityMain.java:354)
