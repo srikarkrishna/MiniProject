@@ -19,7 +19,10 @@ public interface QueryMapper {
 	//for MAC
 	
 	public static String view_applications="SELECT * FROM APPLICATION A JOIN PROGRAMS_SCHEDULED P ON A.SCHEDULED_PROGRAM_ID=P.SCHEDULED_PROGRAM_ID WHERE PROGRAMNAME=?";
-	public static String update_interview_date="UPDATE APPLICATION SET DATE_OF_INTERVIEW=TO_DATE(?,'dd/MM/yyyy') WHERE APPLICATION_ID=?";
+	public static String update_interview_date="UPDATE APPLICATION SET DATE_OF_INTERVIEW=TO_DATE(?,'dd/MM/yyyy'),STATUS='Approved' WHERE APPLICATION_ID=?";
 	public static String delete_application="DELETE FROM APPLICATION WHERE APPLICATION_ID=?";
 	public static String update_status="UPDATE APPLICATION SET STATUS=? WHERE APPLICATION_ID=?";
+	public static String view_application_before_interview="SELECT * FROM APPLICATION WHERE STATUS='APPLIED'";
+	public static String view_application_after_interview="SELECT * FROM APPLICATION WHERE STATUS='APPROVED'";
+	
 }

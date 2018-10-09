@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Application {
 
-	private String applicationId;
+	private int applicationId;
 	private String fullName;
 	private String dateOfBirth;
 	private String highestQualification;
@@ -16,10 +16,10 @@ public class Application {
 	private Date Date_Of_Interview;
 	
 	
-	public String getApplicationId() {
+	public int getApplicationId() {
 		return applicationId;
 	}
-	public void setApplicantId(String applicantId) {
+	public void setApplicantId(int applicantId) {
 		this.applicationId = applicantId;
 	}
 	public String getFullName() {

@@ -91,7 +91,7 @@ public class MAC_dao_impl implements MAC_dao{
 			
 			while(rs.next()){
 				Application s=new Application();
-				s.setApplicantId(rs.getString("APPLICATION_ID"));
+				s.setApplicantId(rs.getInt("APPLICATION_ID"));
 				s.setFullName(rs.getString("FULL_NAME"));
 				s.setDateOfBirth(rs.getString("DATE_OF_BIRTH"));
 				s.setEmailId(rs.getString("EMAIL_ID"));
