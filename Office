@@ -10,3 +10,8 @@ no need of sendEmailUsingGmailSMTP. mailmail,test and applicationContext are eno
 
 admit_start request mapping has to be changed. No need to reload the page after clicking the start button. use ajax.
 password encryption(spring security)
+
+
+https://stackoverflow.com/questions/23157817/http-vs-tcp-ip-send-data-to-a-web-server
+https://www.lifewire.com/web-browsers-and-web-servers-communicate-817764
+https://scotch.io/tutorials/dns-explained-how-your-browser-finds-websites
