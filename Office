@@ -1,2 +1,12 @@
 http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx
 
+
+write css and javascript in a separate files and use html attributes for input fields
+session variables.
+remove password and username in mail class and for workbench.
+send mail to multiple people 
+remove infobox(save it may be useful elsewhere)
+no need of sendEmailUsingGmailSMTP. mailmail,test and applicationContext are enough.
+
+admit_start request mapping has to be changed. No need to reload the page after clicking the start button. use ajax.
+password encryption(spring security)
